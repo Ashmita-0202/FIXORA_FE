@@ -1,0 +1,7 @@
+.detail { padding: var(--sp-4) 0 var(--sp-6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: start; }
+.detail__image { aspect-ratio: 4/3; background: var(--color-accent-soft); border-radius: var(--radius-md); overflow: hidden; }
+.detail__image img { width: 100%; height: 100%; object-fit: cover; }
+.detail__category { color: var(--color-ink-soft); font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.detail__desc { margin: var(--sp-2) 0; color: var(--color-ink-soft); }
+.detail__price { font-size: var(--fs-xl); color: var(--color-primary); font-weight: 700; margin-bottom: var(--sp-3); }
+@media (max-width: 720px) { .detail { grid-template-columns: 1fr; } }

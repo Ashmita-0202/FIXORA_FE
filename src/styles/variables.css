@@ -1,0 +1,49 @@
+/* ===========================================================
+   FIXORA DESIGN TOKENS
+   Concept: the "repair ticket" — every appliance job at a real
+   repair shop becomes a physical job-card: a ticket number,
+   a stamped status, a technician's signature. That ticket
+   stub is Fixora's signature motif (see BookingSummary).
+   =========================================================== */
+:root {
+  /* --- Color --- */
+  --color-bg:            #F6F4EF;   /* warm off-white, paper-like */
+  --color-surface:       #FFFFFF;
+  --color-ink:           #17242A;   /* near-black, slight teal cast */
+  --color-ink-soft:      #4B5B60;
+  --color-primary:       #0F3D3E;   /* deep petrol teal — trust, technical */
+  --color-primary-light: #1B5C5D;
+  --color-accent:        #E8863A;   /* indicator-light amber — repair/service cue */
+  --color-accent-soft:   #FCE3C7;
+  --color-success:       #2F8F5B;
+  --color-danger:        #C1462F;
+  --color-border:        #E1DCD0;
+
+  /* --- Type --- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace; /* ticket numbers, prices */
+
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.75rem;
+  --fs-2xl:  2.5rem;
+  --fs-3xl:  3.5rem;
+
+  /* --- Spacing (8px scale) --- */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 4.5rem;
+
+  /* --- Shape --- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 2px 10px rgba(23, 36, 42, 0.06);
+  --shadow-raised: 0 8px 24px rgba(23, 36, 42, 0.12);
+}
