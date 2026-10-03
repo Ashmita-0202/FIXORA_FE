@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   CalendarDays,
+  CalendarPlus,
   ClipboardList,
   LayoutDashboard,
   User,
@@ -38,6 +39,7 @@ export const ADMIN_NAV: PortalNavItem[] = [
 
 export const CUSTOMER_NAV: PortalNavItem[] = [
   { label: "Home", to: "/customer", icon: LayoutDashboard },
+  { label: "Book a Service", to: "/customer/book", icon: CalendarPlus },
   { label: "My Bookings", to: "/customer/bookings", icon: ClipboardList },
   { label: "Profile", to: "/customer/profile", icon: User },
 ];

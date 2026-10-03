@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Link, useLocation, useNavigate } from "react-router-dom";
 import { LogIn, Star } from "lucide-react";
 import {
   Alert,
@@ -110,9 +110,16 @@ export function LoginPage() {
           </CardContent>
         </Card>
 
+        <p className="text-center text-sm text-muted-foreground">
+          New to Fixora?{" "}
+          <Link to="/signup" className="font-semibold text-blue-700 hover:underline">
+            Create an account
+          </Link>
+        </p>
+
         <p className="text-center text-xs text-muted-foreground">
-          Accounts are created by an administrator. Technician applications are reviewed
-          before new job requests become visible.
+          Technicians are added by an admin and must be approved before they can accept
+          job requests.
         </p>
       </div>
     </div>
