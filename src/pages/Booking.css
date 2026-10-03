@@ -1,5 +1,0 @@
-.booking-page { padding: var(--sp-4) 0 var(--sp-6); max-width: 520px; }
-.booking-page__sub { color: var(--color-ink-soft); margin-bottom: var(--sp-3); }
-.booking-page > .btn { margin-top: var(--sp-3); }
-.booking-form { margin-top: var(--sp-3); }
-.booking-form__error { color: var(--color-danger); margin-bottom: var(--sp-2); font-size: var(--fs-sm); }

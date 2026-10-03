@@ -1,5 +1,0 @@
-.dashboard { padding: var(--sp-4) 0 var(--sp-6); }
-.dashboard h1 { margin-bottom: var(--sp-3); }
-.dashboard__grid { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
-.dashboard__error { color: var(--color-danger); }
-.dashboard__empty { color: var(--color-ink-soft); }

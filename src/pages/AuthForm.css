@@ -1,6 +1,0 @@
-.auth-page { padding: var(--sp-5) 0; display: flex; justify-content: center; }
-.auth-form { width: 100%; max-width: 400px; background: var(--color-surface); padding: var(--sp-4); border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
-.auth-form h1 { margin-bottom: var(--sp-3); }
-.auth-form__error { color: var(--color-danger); font-size: var(--fs-sm); margin-bottom: var(--sp-2); }
-.auth-form__switch { text-align: center; margin-top: var(--sp-2); font-size: var(--fs-sm); color: var(--color-ink-soft); }
-.auth-form__switch a { color: var(--color-primary); font-weight: 600; }

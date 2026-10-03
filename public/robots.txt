@@ -1,3 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Authenticated areas — nothing sensitive is crawlable, but there is no value in
+# indexing dashboards or booking history either.
+Disallow: /dashboard
+Disallow: /technician
+Disallow: /customer
+Disallow: /admin
