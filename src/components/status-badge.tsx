@@ -37,3 +37,16 @@ export function ApprovalStatusBadge({ status }: { status: TechnicianApprovalStat
   const config = APPROVAL_BADGE[status] ?? { variant: "neutral" as const, label: status };
   return <Badge variant={config.variant}>{config.label}</Badge>;
 }
+
+/**
+ * Status as display text, for places that need the label outside a badge —
+ * filter dropdowns, dialog buttons ("Mark completed"), confirmation copy.
+ * Keeping it beside the badge map means "InProgress" is only spelled once.
+ */
+export function bookingStatusLabel(status: BookingStatus): string {
+  return BOOKING_BADGE[status]?.label ?? status;
+}
+
+export function approvalStatusLabel(status: TechnicianApprovalStatus): string {
+  return APPROVAL_BADGE[status]?.label ?? status;
+}

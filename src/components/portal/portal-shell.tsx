@@ -172,7 +172,10 @@ function SidebarLink({ item, isHome }: { item: PortalNavItem; isHome: boolean })
         <>
           <Icon className="size-4 shrink-0" />
           <span className="flex-1 truncate">{item.label}</span>
-          {isActive && <span className="size-1.5 rounded-full bg-emerald-500" />}
+          {item.badge}
+          {isActive && !item.badge && (
+            <span className="size-1.5 rounded-full bg-emerald-500" />
+          )}
         </>
       )}
     </NavLink>

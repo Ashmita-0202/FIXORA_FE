@@ -4,37 +4,43 @@ import {
   CalendarPlus,
   ClipboardList,
   LayoutDashboard,
+  Tag,
   User,
+  UserCheck,
+  Users,
   Wallet,
   Wrench,
 } from "lucide-react";
+import type { ReactNode } from "react";
 
 export interface PortalNavItem {
   label: string;
   to: string;
   icon: LucideIcon;
   /**
-   * The Service Requests item carries an unread/deferred count badge in the
-   * prototype. Wired to the pending job-request count by the layout, which is
-   * the only page that knows that number.
+   * Optional badge rendered at the end of the nav item. The portal layout owns
+   * the counts, so it supplies this per render rather than the nav config —
+   * counts live in API responses, not in static navigation.
    */
-  badgeKey?: "pendingRequests";
+  badge?: ReactNode;
 }
 
 export const TECHNICIAN_NAV: PortalNavItem[] = [
   { label: "Dashboard", to: "/technician", icon: LayoutDashboard },
-  { label: "Service Requests", to: "/technician/requests", icon: ClipboardList, badgeKey: "pendingRequests" },
+  { label: "Service Requests", to: "/technician/requests", icon: ClipboardList },
   { label: "Active Jobs", to: "/technician/jobs", icon: Wrench },
   { label: "My Schedule", to: "/technician/schedule", icon: CalendarDays },
   { label: "Earnings", to: "/technician/earnings", icon: Wallet },
   { label: "Profile", to: "/technician/profile", icon: User },
 ];
 
-/** Admin portal navigation, kept next to the technician set so both stay aligned. */
 export const ADMIN_NAV: PortalNavItem[] = [
   { label: "Dashboard", to: "/admin", icon: LayoutDashboard },
-  { label: "Users", to: "/admin/users", icon: User },
+  { label: "Applications", to: "/admin/applications", icon: UserCheck },
+  { label: "Technicians", to: "/admin/technicians", icon: Wrench },
   { label: "Bookings", to: "/admin/bookings", icon: ClipboardList },
+  { label: "Customers", to: "/admin/customers", icon: Users },
+  { label: "Services", to: "/admin/services", icon: Tag },
 ];
 
 export const CUSTOMER_NAV: PortalNavItem[] = [

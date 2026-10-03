@@ -82,6 +82,46 @@ const CustomerProfilePage = lazy(() =>
   })),
 );
 
+const AdminLayout = lazy(() =>
+  import("@/routes/admin/layout").then((m) => ({ default: m.AdminLayout })),
+);
+
+const AdminDashboardPage = lazy(() =>
+  import("@/routes/admin/dashboard-page").then((m) => ({
+    default: m.AdminDashboardPage,
+  })),
+);
+
+const AdminApplicationsPage = lazy(() =>
+  import("@/routes/admin/applications-page").then((m) => ({
+    default: m.TechnicianApplicationsPage,
+  })),
+);
+
+const AdminTechniciansPage = lazy(() =>
+  import("@/routes/admin/technicians-page").then((m) => ({
+    default: m.AdminTechniciansPage,
+  })),
+);
+
+const AdminBookingsPage = lazy(() =>
+  import("@/routes/admin/bookings-page").then((m) => ({
+    default: m.AdminBookingsPage,
+  })),
+);
+
+const AdminCustomersPage = lazy(() =>
+  import("@/routes/admin/customers-page").then((m) => ({
+    default: m.AdminCustomersPage,
+  })),
+);
+
+const AdminServicesPage = lazy(() =>
+  import("@/routes/admin/services-page").then((m) => ({
+    default: m.AdminServicesPage,
+  })),
+);
+
 /**
  * Route table.
  *
@@ -133,10 +173,17 @@ export function App() {
             path="/admin/*"
             element={
               <ProtectedRoute allowedRoles={[UserRole.Admin]}>
-                <PlaceholderPortal title="Admin portal" />
+                <AdminLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<AdminDashboardPage />} />
+            <Route path="applications" element={<AdminApplicationsPage />} />
+            <Route path="technicians" element={<AdminTechniciansPage />} />
+            <Route path="bookings" element={<AdminBookingsPage />} />
+            <Route path="customers" element={<AdminCustomersPage />} />
+            <Route path="services" element={<AdminServicesPage />} />
+          </Route>
 
           <Route path="/" element={<RoleLanding />} />
           <Route path="*" element={<RoleLanding />} />
@@ -153,19 +200,4 @@ function RoleLanding() {
   if (isInitializing) return <div className="min-h-screen bg-background" />;
   if (!isAuthenticated || !user) return <Navigate to="/login" replace />;
   return <Navigate to={homePathFor(user.UserRole)} replace />;
-}
-
-function PlaceholderPortal({ title }: { title: string }) {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md space-y-2 text-center">
-        <h1 className="font-display text-2xl font-extrabold text-foreground">{title}</h1>
-        <p className="text-sm text-muted-foreground">
-          This portal is not built yet. The technician and customer portals are complete
-          and available at <span className="font-medium">/technician</span> and{" "}
-          <span className="font-medium">/customer</span>.
-        </p>
-      </div>
-    </div>
-  );
 }
