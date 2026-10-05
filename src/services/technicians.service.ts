@@ -1,5 +1,6 @@
 import { apiClient } from "@/lib/api-client";
 import type {
+  AddTechnicianRequest,
   Earnings,
   RejectTechnicianRequest,
   Technician,
@@ -14,6 +15,14 @@ import type {
  * with the user id. Mixing them up is silent — every route still resolves, it
  * just returns the wrong record or a 404.
  */
+
+/** Admin: create a technician account in Pending/inactive state. */
+export async function addTechnician(
+  payload: AddTechnicianRequest,
+): Promise<Technician> {
+  const { data } = await apiClient.post<Technician>("/Technician", payload);
+  return data;
+}
 
 export async function getMyTechnicianProfile(): Promise<Technician> {
   const { data } = await apiClient.get<Technician>("/Technician/my-profile");

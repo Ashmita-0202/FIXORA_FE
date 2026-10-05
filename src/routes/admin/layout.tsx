@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { PortalShell } from "@/components/portal/portal-shell";
 import { ADMIN_NAV } from "@/config/navigation";
 import { useApiData } from "@/hooks/useApiData";
@@ -14,8 +15,9 @@ import { getPendingApplications } from "@/services/technicians.service";
  * navigation.
  */
 export function AdminLayout() {
+  const { pathname } = useLocation();
   const loader = useCallback(() => getPendingApplications(), []);
-  const { data } = useApiData(loader, []);
+  const { data } = useApiData(loader, [pathname]);
 
   const pendingCount = data?.length ?? 0;
 

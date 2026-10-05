@@ -1,6 +1,6 @@
-import { Menu, Star, X } from "lucide-react";
+import { LogOut, Menu, Star, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, Button } from "@/components/ui";
 import type { PortalNavItem } from "@/config/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -28,8 +28,9 @@ export function PortalShell({
   /** Portal-specific header content, e.g. the technician availability pill. */
   headerExtra?: ReactNode;
 }) {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   /**
    * The drawer is keyed by the path it was opened on rather than held as a plain
@@ -41,6 +42,10 @@ export function PortalShell({
 
   const openDrawer = () => setDrawerOpenedAt(location.pathname);
   const closeDrawer = () => setDrawerOpenedAt(null);
+  const handleSignOut = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
 
   // Legitimate effect: synchronizes an external system (document.body).
   useEffect(() => {
@@ -105,6 +110,15 @@ export function PortalShell({
             <Avatar>
               <AvatarFallback>{initialsOf(fullName)}</AvatarFallback>
             </Avatar>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleSignOut}
+              aria-label="Sign out"
+            >
+              <LogOut />
+              <span className="hidden sm:inline">Sign out</span>
+            </Button>
           </div>
         </header>
 
